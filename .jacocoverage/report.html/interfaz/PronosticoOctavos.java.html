@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PronosticoOctavos.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;obligatorios2is&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaz</a> &gt; <span class="el_source">PronosticoOctavos.java</span></div><h1>PronosticoOctavos.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package interfaz;
+
+import dominio.Partido;
+import dominio.PronosticoPartido;
+import dominio.Sistema;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Joaquin
+ */
+public class PronosticoOctavos extends javax.swing.JDialog {
+
+    private Sistema sistema;
+    private MenuJugador menu;
+
+    public PronosticoOctavos(java.awt.Frame parent, boolean modal, Sistema sistema) {
+<span class="nc" id="L23">        super(parent, modal);</span>
+<span class="nc" id="L24">        this.setSistema(sistema);</span>
+<span class="nc" id="L25">        initComponents();</span>
+<span class="nc" id="L26">        this.setSize(800, 800);</span>
+<span class="nc" id="L27">        this.setLocationRelativeTo(parent);</span>
+<span class="nc" id="L28">        this.partidosOctavos.setListData(getSistema().partidosEnFases(16).toArray());</span>
+<span class="nc" id="L29">        pronosticos.setListData(getSistema().getJugadorQueUsa().getPronosticos().toArray());</span>
+<span class="nc" id="L30">    }</span>
+
+    public Sistema getSistema() {
+<span class="nc" id="L33">        return sistema;</span>
+    }
+
+    public void setSistema(Sistema sistema) {
+<span class="nc" id="L37">        this.sistema = sistema;</span>
+<span class="nc" id="L38">    }</span>
+
+    public MenuJugador getMenu() {
+<span class="nc" id="L41">        return menu;</span>
+    }
+
+    public void setMenu(MenuJugador menu) {
+<span class="nc" id="L45">        this.menu = menu;</span>
+<span class="nc" id="L46">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L52">        jPanel1 = new javax.swing.JPanel();</span>
+<span class="nc" id="L53">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L54">        partidosOctavos = new javax.swing.JList();</span>
+<span class="nc" id="L55">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L56">        pais1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L57">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L58">        resultadoPais1 = new javax.swing.JTextField();</span>
+<span class="nc" id="L59">        resultadoPais2 = new javax.swing.JTextField();</span>
+<span class="nc" id="L60">        pais2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L61">        pronosticar = new javax.swing.JButton();</span>
+<span class="nc" id="L62">        jLabel4 = new javax.swing.JLabel();</span>
+<span class="nc" id="L63">        jScrollPane2 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L64">        pronosticos = new javax.swing.JList();</span>
+<span class="nc" id="L65">        jLabel1 = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L67">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
+
+<span class="nc" id="L69">        jPanel1.setLayout(null);</span>
+
+<span class="nc" id="L71">        partidosOctavos.setModel(new javax.swing.AbstractListModel() {</span>
+<span class="nc" id="L72">            String[] strings = { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot;, &quot;Item 5&quot; };</span>
+<span class="nc" id="L73">            public int getSize() { return strings.length; }</span>
+<span class="nc" id="L74">            public Object getElementAt(int i) { return strings[i]; }</span>
+        });
+<span class="nc" id="L76">        partidosOctavos.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L78">                partidosOctavosMouseClicked(evt);</span>
+<span class="nc" id="L79">            }</span>
+        });
+<span class="nc" id="L81">        jScrollPane1.setViewportView(partidosOctavos);</span>
+
+<span class="nc" id="L83">        jPanel1.add(jScrollPane1);</span>
+<span class="nc" id="L84">        jScrollPane1.setBounds(80, 90, 140, 260);</span>
+
+<span class="nc" id="L86">        jLabel2.setText(&quot;Partidos:&quot;);</span>
+<span class="nc" id="L87">        jPanel1.add(jLabel2);</span>
+<span class="nc" id="L88">        jLabel2.setBounds(110, 60, 70, 16);</span>
+<span class="nc" id="L89">        jPanel1.add(pais1);</span>
+<span class="nc" id="L90">        pais1.setBounds(30, 400, 110, 30);</span>
+
+<span class="nc" id="L92">        jLabel3.setText(&quot;VS&quot;);</span>
+<span class="nc" id="L93">        jPanel1.add(jLabel3);</span>
+<span class="nc" id="L94">        jLabel3.setBounds(170, 400, 30, 30);</span>
+
+<span class="nc" id="L96">        resultadoPais1.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L98">                resultadoPais1ActionPerformed(evt);</span>
+<span class="nc" id="L99">            }</span>
+        });
+<span class="nc" id="L101">        jPanel1.add(resultadoPais1);</span>
+<span class="nc" id="L102">        resultadoPais1.setBounds(140, 400, 30, 24);</span>
+<span class="nc" id="L103">        jPanel1.add(resultadoPais2);</span>
+<span class="nc" id="L104">        resultadoPais2.setBounds(200, 400, 30, 24);</span>
+<span class="nc" id="L105">        jPanel1.add(pais2);</span>
+<span class="nc" id="L106">        pais2.setBounds(260, 400, 100, 30);</span>
+
+<span class="nc" id="L108">        pronosticar.setText(&quot;Pronosticar&quot;);</span>
+<span class="nc" id="L109">        pronosticar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L111">                pronosticarActionPerformed(evt);</span>
+<span class="nc" id="L112">            }</span>
+        });
+<span class="nc" id="L114">        jPanel1.add(pronosticar);</span>
+<span class="nc" id="L115">        pronosticar.setBounds(110, 460, 180, 32);</span>
+
+<span class="nc" id="L117">        jLabel4.setText(&quot;Tus pronosticos&quot;);</span>
+<span class="nc" id="L118">        jPanel1.add(jLabel4);</span>
+<span class="nc" id="L119">        jLabel4.setBounds(420, 60, 100, 16);</span>
+
+<span class="nc" id="L121">        pronosticos.setModel(new javax.swing.AbstractListModel() {</span>
+<span class="nc" id="L122">            String[] strings = { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot;, &quot;Item 5&quot; };</span>
+<span class="nc" id="L123">            public int getSize() { return strings.length; }</span>
+<span class="nc" id="L124">            public Object getElementAt(int i) { return strings[i]; }</span>
+        });
+<span class="nc" id="L126">        jScrollPane2.setViewportView(pronosticos);</span>
+
+<span class="nc" id="L128">        jPanel1.add(jScrollPane2);</span>
+<span class="nc" id="L129">        jScrollPane2.setBounds(400, 90, 150, 250);</span>
+<span class="nc" id="L130">        jPanel1.add(jLabel1);</span>
+<span class="nc" id="L131">        jLabel1.setBounds(0, 0, 750, 540);</span>
+
+<span class="nc" id="L133">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L134">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L135">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L136">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L137">            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L139">        layout.setVerticalGroup(</span>
+<span class="nc" id="L140">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L141">            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L144">        pack();</span>
+<span class="nc" id="L145">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void pronosticarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pronosticarActionPerformed
+<span class="nc" id="L148">        Partido partido = (Partido) partidosOctavos.getSelectedValue();</span>
+<span class="nc" id="L149">        String resultado1 = this.resultadoPais1.getText();</span>
+<span class="nc" id="L150">        String resultado2 = this.resultadoPais2.getText();</span>
+<span class="nc bnc" id="L151" title="All 6 branches missed.">        if ((partido != null) &amp;&amp; (!(resultado1.isEmpty())) &amp;&amp; (!(resultado2.isEmpty()))) {</span>
+<span class="nc" id="L152">             int resultadoP1 = Integer.parseInt(this.resultadoPais1.getText());</span>
+<span class="nc" id="L153">            int resultadoP2 = Integer.parseInt(this.resultadoPais2.getText());</span>
+<span class="nc" id="L154">            int[] resultado = new int[2];</span>
+<span class="nc" id="L155">            resultado[0] = resultadoP1;</span>
+<span class="nc" id="L156">            resultado[1] = resultadoP2;</span>
+<span class="nc" id="L157">            PronosticoPartido pronostico = new PronosticoPartido(resultado, partido);</span>
+<span class="nc bnc" id="L158" title="All 2 branches missed.">           if(!(getSistema().getJugadorQueUsa().getPronosticos().contains(pronostico))){</span>
+<span class="nc" id="L159">                 this.getSistema().getJugadorQueUsa().getPronosticos().add(pronostico);</span>
+<span class="nc" id="L160">                 this.getSistema().guardarSistema(getSistema());</span>
+<span class="nc" id="L161">                 pronosticos.setListData(getSistema().getJugadorQueUsa().getPronosticos().toArray());</span>
+<span class="nc" id="L162">                 JOptionPane.showMessageDialog(this, &quot;Tu pronostico para el partido &quot; + partido.getEquipos()[0] + &quot; VS &quot; + partido.getEquipos()[1] + &quot; fue registrado con exito.&quot;, &quot;Pronostico registrado&quot;, 1);</span>
+            }else{
+<span class="nc" id="L164">                JOptionPane.showMessageDialog(this,&quot;Ya se hizo el pronostico&quot;,&quot;Ya se pronostico ese partido&quot;, 1);</span>
+            }
+<span class="nc" id="L166">        }else{</span>
+<span class="nc" id="L167">               JOptionPane.showMessageDialog(this, &quot;Porfavor seleccione el partido a apostar y ingrese el resultado a prnosticar.&quot;, &quot;Atencion , llene los campos&quot;, 2);</span>
+        }
+<span class="nc" id="L169">    }//GEN-LAST:event_pronosticarActionPerformed</span>
+
+    private void partidosOctavosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partidosOctavosMouseClicked
+<span class="nc" id="L172">        Partido partido = (Partido) this.partidosOctavos.getSelectedValue();</span>
+<span class="nc" id="L173">        String nombrePais1 = partido.getEquipos()[0];</span>
+<span class="nc" id="L174">        String nombrePais2 = partido.getEquipos()[1];</span>
+<span class="nc" id="L175">        this.pais1.setText(nombrePais1);</span>
+<span class="nc" id="L176">        this.pais2.setText(nombrePais2);</span>
+<span class="nc" id="L177">    }//GEN-LAST:event_partidosOctavosMouseClicked</span>
+
+    private void resultadoPais1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadoPais1ActionPerformed
+        // TODO add your handling code here:
+<span class="nc" id="L181">    }//GEN-LAST:event_resultadoPais1ActionPerformed</span>
+
+    /**
+     * @param args the command line arguments
+     */
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel pais1;
+    private javax.swing.JLabel pais2;
+    private javax.swing.JList partidosOctavos;
+    private javax.swing.JButton pronosticar;
+    private javax.swing.JList pronosticos;
+    private javax.swing.JTextField resultadoPais1;
+    private javax.swing.JTextField resultadoPais2;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

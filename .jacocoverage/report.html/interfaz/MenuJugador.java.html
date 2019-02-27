@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MenuJugador.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;obligatorios2is&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaz</a> &gt; <span class="el_source">MenuJugador.java</span></div><h1>MenuJugador.java</h1><pre class="source lang-java linenums">package interfaz;
+
+import dominio.Jugador;
+import dominio.Partido;
+import dominio.Sistema;
+import java.util.ArrayList;
+import java.util.Collections;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import org.jvnet.substance.SubstanceLookAndFeel;
+
+public class MenuJugador extends javax.swing.JFrame {
+
+    private Sistema sistema;
+
+    public Sistema getSistema() {
+<span class="fc" id="L19">        return sistema;</span>
+    }
+
+    public void setSistema(Sistema unSistema) {
+<span class="fc" id="L23">        sistema = unSistema;</span>
+<span class="fc" id="L24">    }</span>
+
+<span class="fc" id="L26">    public MenuJugador(Sistema sistema) {</span>
+<span class="fc" id="L27">        initComponents();</span>
+<span class="fc" id="L28">        this.setLocationRelativeTo(this);</span>
+<span class="fc" id="L29">        this.setSistema(sistema);</span>
+<span class="fc" id="L30">        this.jMenu.setVisible(false);</span>
+<span class="fc" id="L31">        this.crearPenca.setVisible(false);</span>
+<span class="fc" id="L32">        this.crearPenca.setEnabled(false);</span>
+<span class="fc" id="L33">        this.pronosticar.setEnabled(false);</span>
+<span class="fc" id="L34">        this.pronosticar.setVisible(false);</span>
+<span class="fc" id="L35">        this.rankingss.setEnabled(false);</span>
+<span class="fc" id="L36">        this.rankingss.setVisible(false);</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if (getSistema().isExistePenca()) {</span>
+<span class="nc" id="L38">            this.crearPenca.setEnabled(false);</span>
+        }
+<span class="fc" id="L40">        JFrame.setDefaultLookAndFeelDecorated(true);</span>
+<span class="fc" id="L41">        SubstanceLookAndFeel.setSkin(&quot;org.jvnet.substance.skin.RavenGraphiteSkin&quot;);</span>
+<span class="fc" id="L42">        setIconImage(new ImageIcon(getClass().getResource(&quot;/imagenes/mundial.jpg&quot;)).getImage());</span>
+<span class="fc" id="L43">    }</span>
+
+    public JButton getRankingss() {
+<span class="nc" id="L46">        return rankingss;</span>
+    }
+
+    public void setRankingss(JButton rankingss) {
+<span class="nc" id="L50">        this.rankingss = rankingss;</span>
+<span class="nc" id="L51">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="fc" id="L57">        jPanel1 = new javax.swing.JPanel();</span>
+<span class="fc" id="L58">        registrarJugador = new javax.swing.JButton();</span>
+<span class="fc" id="L59">        crearPenca = new javax.swing.JButton();</span>
+<span class="fc" id="L60">        jElegirJugador = new javax.swing.JButton();</span>
+<span class="fc" id="L61">        jMenu = new javax.swing.JPanel();</span>
+<span class="fc" id="L62">        pronosticar = new javax.swing.JButton();</span>
+<span class="fc" id="L63">        rankingss = new javax.swing.JButton();</span>
+<span class="fc" id="L64">        reglas = new javax.swing.JButton();</span>
+<span class="fc" id="L65">        jLabel1 = new javax.swing.JLabel();</span>
+
+<span class="fc" id="L67">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L68">        setTitle(&quot;Penca del Mundial&quot;);</span>
+<span class="fc" id="L69">        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="fc" id="L71">        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="fc" id="L73">        registrarJugador.setText(&quot;Registrar jugador&quot;);</span>
+<span class="fc" id="L74">        registrarJugador.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L76">                registrarJugadorActionPerformed(evt);</span>
+<span class="nc" id="L77">            }</span>
+        });
+<span class="fc" id="L79">        jPanel1.add(registrarJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 200, 55));</span>
+
+<span class="fc" id="L81">        crearPenca.setText(&quot;Parametrizar reglas&quot;);</span>
+<span class="fc" id="L82">        crearPenca.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L84">                crearPencaActionPerformed(evt);</span>
+<span class="nc" id="L85">            }</span>
+        });
+<span class="fc" id="L87">        jPanel1.add(crearPenca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 200, 55));</span>
+
+<span class="fc" id="L89">        jElegirJugador.setText(&quot;Elegir Jugador&quot;);</span>
+<span class="fc" id="L90">        jElegirJugador.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L92">                jElegirJugadorActionPerformed(evt);</span>
+<span class="nc" id="L93">            }</span>
+        });
+<span class="fc" id="L95">        jPanel1.add(jElegirJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 200, 55));</span>
+
+<span class="fc" id="L97">        javax.swing.GroupLayout jMenuLayout = new javax.swing.GroupLayout(jMenu);</span>
+<span class="fc" id="L98">        jMenu.setLayout(jMenuLayout);</span>
+<span class="fc" id="L99">        jMenuLayout.setHorizontalGroup(</span>
+<span class="fc" id="L100">            jMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L101">            .addGap(0, 560, Short.MAX_VALUE)</span>
+        );
+<span class="fc" id="L103">        jMenuLayout.setVerticalGroup(</span>
+<span class="fc" id="L104">            jMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L105">            .addGap(0, 400, Short.MAX_VALUE)</span>
+        );
+
+<span class="fc" id="L108">        jPanel1.add(jMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 560, 400));</span>
+
+<span class="fc" id="L110">        pronosticar.setText(&quot;Pronosticar&quot;);</span>
+<span class="fc" id="L111">        pronosticar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L113">                pronosticarActionPerformed(evt);</span>
+<span class="nc" id="L114">            }</span>
+        });
+<span class="fc" id="L116">        jPanel1.add(pronosticar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 200, 55));</span>
+
+<span class="fc" id="L118">        rankingss.setText(&quot;Rankings&quot;);</span>
+<span class="fc" id="L119">        rankingss.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L121">                rankingssActionPerformed(evt);</span>
+<span class="nc" id="L122">            }</span>
+        });
+<span class="fc" id="L124">        jPanel1.add(rankingss, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 200, 60));</span>
+
+<span class="fc" id="L126">        reglas.setText(&quot;Ver reglas&quot;);</span>
+<span class="fc" id="L127">        reglas.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L129">                reglasActionPerformed(evt);</span>
+<span class="nc" id="L130">            }</span>
+        });
+<span class="fc" id="L132">        jPanel1.add(reglas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 200, 60));</span>
+
+<span class="fc" id="L134">        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/imagenes/mundial.jpg&quot;))); // NOI18N</span>
+<span class="fc" id="L135">        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 520));</span>
+
+<span class="fc" id="L137">        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 510));</span>
+
+<span class="fc" id="L139">        pack();</span>
+<span class="fc" id="L140">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    public JButton getCrearPenca() {
+<span class="nc" id="L143">        return crearPenca;</span>
+    }
+
+    public JButton getPronosticar() {
+<span class="nc" id="L147">        return pronosticar;</span>
+    }
+
+    private void jElegirJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jElegirJugadorActionPerformed
+<span class="nc" id="L151">        ElegirUsuario elegir = new ElegirUsuario(getSistema(), this);</span>
+<span class="nc" id="L152">        this.jMenu.setVisible(true);</span>
+<span class="nc" id="L153">        elegir.setSize(300, 300);</span>
+<span class="nc" id="L154">        jMenu.removeAll();</span>
+<span class="nc" id="L155">        jMenu.add(elegir);</span>
+<span class="nc" id="L156">        jMenu.repaint();</span>
+<span class="nc" id="L157">        jMenu.revalidate();</span>
+
+
+<span class="nc" id="L160">    }//GEN-LAST:event_jElegirJugadorActionPerformed</span>
+
+    private void registrarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarJugadorActionPerformed
+<span class="nc" id="L163">        RegistrarJugador registro = new RegistrarJugador(getSistema());</span>
+<span class="nc" id="L164">        this.jMenu.setVisible(true);</span>
+<span class="nc" id="L165">        registro.setSize(300, 300);</span>
+<span class="nc" id="L166">        jMenu.removeAll();</span>
+<span class="nc" id="L167">        jMenu.add(registro);</span>
+<span class="nc" id="L168">        jMenu.repaint();</span>
+<span class="nc" id="L169">        jMenu.revalidate();</span>
+
+<span class="nc" id="L171">    }//GEN-LAST:event_registrarJugadorActionPerformed</span>
+
+    private void crearPencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearPencaActionPerformed
+<span class="nc" id="L174">        CrearPenca crearPenca = new CrearPenca(this, true, getSistema(), this);</span>
+<span class="nc" id="L175">        crearPenca.setVisible(true);</span>
+<span class="nc" id="L176">    }//GEN-LAST:event_crearPencaActionPerformed</span>
+
+
+    private void pronosticarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pronosticarActionPerformed
+<span class="nc" id="L180">        Pronostico pronosticar = new Pronostico(this, true, getSistema(), this);</span>
+<span class="nc" id="L181">        pronosticar.setVisible(true);</span>
+
+<span class="nc" id="L183">    }//GEN-LAST:event_pronosticarActionPerformed</span>
+
+    private void rankingssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingssActionPerformed
+<span class="nc bnc" id="L186" title="All 2 branches missed.">        if(this.getSistema().getJuego()!=null){</span>
+<span class="nc" id="L187">            ArrayList&lt;Partido&gt; jugados = this.getSistema().resultadosEnfase();</span>
+<span class="nc" id="L188">            this.getSistema().sumarPuntajeFaseGrupos(jugados);</span>
+<span class="nc" id="L189">            getSistema().setPartidos(jugados);</span>
+<span class="nc" id="L190">            jugados = this.getSistema().partidosJugadosEnFases(16);</span>
+<span class="nc" id="L191">            this.getSistema().sumarPuntajeOctavos(jugados);</span>
+<span class="nc" id="L192">           getSistema().actualizar(getSistema().getPartidos8tavos());</span>
+<span class="nc" id="L193">            jugados = this.getSistema().partidosJugadosEnFases(8);</span>
+<span class="nc" id="L194">            this.getSistema().sumarPuntajeCuartos(jugados);</span>
+<span class="nc" id="L195">            getSistema().actualizar(getSistema().getPartidos4tos());</span>
+<span class="nc" id="L196">            jugados = this.getSistema().partidosJugadosEnFases(4);</span>
+<span class="nc" id="L197">            this.getSistema().sumarPuntajeCuartos(jugados);</span>
+<span class="nc" id="L198">            getSistema().actualizar(getSistema().getPartidosSemis());</span>
+<span class="nc" id="L199">            jugados = this.getSistema().finaly34Puesto();</span>
+<span class="nc" id="L200">            this.getSistema().sumarPuntajeCuartos(jugados);</span>
+<span class="nc" id="L201">            Collections.sort(this.getSistema().getJugadores());</span>
+<span class="nc" id="L202">            ArrayList&lt;String&gt; rankings = new ArrayList&lt;String&gt;();</span>
+<span class="nc" id="L203">            rankings = this.getSistema().rankingsumerados(this.getSistema().getJugadores());</span>
+<span class="nc" id="L204">            Rankings rankiing = new Rankings(this,true,getSistema(),rankings);</span>
+<span class="nc" id="L205">            rankiing.setVisible(true);</span>
+<span class="nc" id="L206">        }else{</span>
+<span class="nc" id="L207">            JOptionPane.showMessageDialog(this,&quot;Debe parametrizar las reglas y crear la penca para poder acceder al ranking&quot;,&quot;Atencion&quot;,2);</span>
+        }
+
+<span class="nc" id="L210">    }//GEN-LAST:event_rankingssActionPerformed</span>
+
+    private void reglasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reglasActionPerformed
+<span class="nc" id="L213">        MostrarReglas reglas = new MostrarReglas(getSistema());</span>
+<span class="nc" id="L214">        this.jMenu.setVisible(true);</span>
+<span class="nc" id="L215">        reglas.setSize(900, 900);</span>
+<span class="nc" id="L216">        jMenu.removeAll();</span>
+<span class="nc" id="L217">        jMenu.add(reglas);</span>
+<span class="nc" id="L218">        jMenu.repaint();</span>
+<span class="nc" id="L219">        jMenu.revalidate();</span>
+<span class="nc" id="L220">    }//GEN-LAST:event_reglasActionPerformed</span>
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton crearPenca;
+    private javax.swing.JButton jElegirJugador;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jMenu;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton pronosticar;
+    private javax.swing.JButton rankingss;
+    private javax.swing.JButton registrarJugador;
+    private javax.swing.JButton reglas;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

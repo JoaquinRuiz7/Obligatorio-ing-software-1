@@ -1,0 +1,49 @@
+A@Uruguay@Rusia@2@0@Estadio central Ekaterimburgo
+A@Uruguay@Egipto@3@2@Estadio central Ekaterimburgo
+A@Uruguay@Arabia saudita @7@0@Estadio central Ekaterimburgo
+A@Rusia@Egipto@2@1@Estadio central Ekaterimburgo
+A@Rusia@Arabia saudita @1@0@Estadio central Ekaterimburgo
+A@Egipto@Arabia saudita @2@1@Estadio central Ekaterimburgo
+B@Portugal@España@2@1@Estadio central Ekaterimburgo
+B@Portugal@Marruecos@1@0@Estadio central Ekaterimburgo
+B@Portugal@Iran@3@0@Estadio central Ekaterimburgo
+B@España@Iran@2@1@Estadio central Ekaterimburgo
+B@España@Marruecos@3@1@Estadio central Ekaterimburgo
+B@Iran@Marruecos@1@1@Estadio central Ekaterimburgo
+C@Francia@Australia@2@1@Estadio central Ekaterimburgo
+C@Francia@Peru@5@0@Estadio central Ekaterimburgo
+C@Francia@Dinamarca@1@0@Estadio central Ekaterimburgo
+C@Australia@Peru@2@1@Estadio central Ekaterimburgo
+C@Australia@Dinamarca@3@1@Estadio central Ekaterimburgo
+C@Peru@Dinamarcca@1@2@Estadio central Ekaterimburgo
+D@Argentina@Islandia@2@1@Estadio central Ekaterimburgo
+D@Argentina@Croacia@1@1@Estadio central Ekaterimburgo
+D@Argentina@Nigeria@2@0@Estadio central Ekaterimburgo
+D@Islandia@Croacia@2@2@Estadio central Ekaterimburgo
+D@Islandia@Nigeria@1@3@Estadio central Ekaterimburgo
+D@Croacia@Nigeria@2@1@Estadio central Ekaterimburgo
+E@Brasil@Suiza@2@2@Estadio central Ekaterimburgo
+E@Brasil@Costa rica @3@1@Estadio central Ekaterimburgo
+E@Brasil@Serbia@2@1@Estadio central Ekaterimburgo
+E@Suiza@Costa rica @2@1@Estadio central Ekaterimburgo
+E@Suiza@Serbia@3@2@Estadio central Ekaterimburgo
+E@Costa rica@Serbia@2@2@Estadio central Ekaterimburgo
+F@Alemania@Mexico@2@0@Estadio central Ekaterimburgo
+F@Alemania@Suecia@2@1@Estadio central Ekaterimburgo
+F@Alemania@Corea del sur@1@0@Estadio central Ekaterimburgo
+F@Mexico@Suecia@2@3@Estadio central Ekaterimburgo
+F@Mexico@Corea del sur@2@2@Estadio central Ekaterimburgo
+F@Suecia@Corea del sur@1@0@Estadio central Ekaterimburgo
+G@Belgica@Panama@3@2@Estadio central Ekaterimburgo
+G@Belgica@Tunez@1@0@Estadio central Ekaterimburgo
+G@Belgica@Inglaterra@1@4@Estadio central Ekaterimburgo
+G@Panama@Tunez@2@2@Estadio central Ekaterimburgo
+G@Panama@Inglaterra@0@3@Estadio central Ekaterimburgo
+G@Tunez@Inglaterra@2@3@Estadio central Ekaterimburgo
+H@Polonia@Senegal@2@1@Estadio central Ekaterimburgo
+H@Polonia@Colombia@2@3@Estadio central Ekaterimburgo
+H@Polonia@Japon@0@0@Estadio central Ekaterimburgo
+H@Senegal@Colombia@1@1@Estadio central Ekaterimburgo
+H@Senegal@Japon@2@1@Estadio central Ekaterimburgo
+H@Colombia@Japon@2@0@Estadio central Ekaterimburgo
+

@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Sistema.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;obligatorios2is&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">dominio</a> &gt; <span class="el_source">Sistema.java</span></div><h1>Sistema.java</h1><pre class="source lang-java linenums">package dominio;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import javax.swing.DefaultListModel;
+import java.util.*;
+
+public class Sistema implements Serializable {
+    
+<span class="pc" id="L16">    private ArrayList&lt;Jugador&gt; jugadores = new ArrayList&lt;&gt;();</span>
+<span class="pc" id="L17">    private ArrayList&lt;Partido&gt; partidosFases = new ArrayList&lt;&gt;();</span>
+<span class="pc" id="L18">    private ArrayList&lt;Partido&gt; partidos8tavos = new ArrayList&lt;&gt;();</span>
+<span class="pc" id="L19">    private ArrayList&lt;Partido&gt; partidos4tos = new ArrayList&lt;&gt;();</span>
+<span class="pc" id="L20">    private ArrayList&lt;Partido&gt; partidosSemis = new ArrayList&lt;&gt;();</span>
+    
+    private Jugador jugadorQueUsa;
+    private Juego juego;
+    private boolean existePenca;
+    
+    public Jugador getJugadorQueUsa() {
+<span class="nc" id="L27">        return jugadorQueUsa;</span>
+    }
+    
+    public void setJugadorQueUsa(Jugador jugadorQueUsa) {
+<span class="fc" id="L31">        this.jugadorQueUsa = jugadorQueUsa;</span>
+<span class="fc" id="L32">    }</span>
+    
+    public boolean isExistePenca() {
+<span class="fc" id="L35">        return existePenca;</span>
+    }
+    
+    public void setExistePenca(boolean existePenca) {
+<span class="fc" id="L39">        this.existePenca = existePenca;</span>
+<span class="fc" id="L40">    }</span>
+    
+    public Juego getJuego() {
+<span class="nc" id="L43">        return juego;</span>
+    }
+    
+    public void setJuego(Juego juego) {
+<span class="fc" id="L47">        this.juego = juego;</span>
+<span class="fc" id="L48">    }</span>
+    
+    public ArrayList&lt;Partido&gt; getPartidos() {
+<span class="fc" id="L51">        return partidosFases;</span>
+    }
+    
+    public void setPartidos(ArrayList&lt;Partido&gt; partidos) {
+<span class="fc" id="L55">        this.partidosFases = partidos;</span>
+<span class="fc" id="L56">    }</span>
+    
+<span class="fc" id="L58">    public Sistema() {</span>
+<span class="fc" id="L59">        this.setJugadores(new ArrayList&lt;Jugador&gt;());</span>
+<span class="fc" id="L60">        this.setJuego(new Juego());</span>
+<span class="fc" id="L61">        this.setJugadorQueUsa(new Jugador());</span>
+<span class="fc" id="L62">        this.setExistePenca(false);</span>
+<span class="fc" id="L63">        this.setPartidos(new ArrayList&lt;Partido&gt;());</span>
+<span class="fc" id="L64">        this.setPartidos8tavos(new ArrayList&lt;Partido&gt;());</span>
+<span class="fc" id="L65">        this.setPartidos4tos(new ArrayList&lt;Partido&gt;());</span>
+<span class="fc" id="L66">        this.setPartidosSemis(new ArrayList&lt;Partido&gt;());</span>
+        
+<span class="fc" id="L68">    }</span>
+    
+    public ArrayList&lt;Partido&gt; getPartidosFases() {
+<span class="nc" id="L71">        return partidosFases;</span>
+    }
+    
+   
+    
+    public ArrayList&lt;Partido&gt; getPartidos8tavos() {
+<span class="fc" id="L77">        return partidos8tavos;</span>
+    }
+    
+    public void setPartidos8tavos(ArrayList&lt;Partido&gt; partidos8tavos) {
+<span class="fc" id="L81">        this.partidos8tavos = partidos8tavos;</span>
+<span class="fc" id="L82">    }</span>
+    
+    public ArrayList&lt;Partido&gt; getPartidos4tos() {
+<span class="fc" id="L85">        return partidos4tos;</span>
+    }
+    
+    public void setPartidos4tos(ArrayList&lt;Partido&gt; partidos4tos) {
+<span class="fc" id="L89">        this.partidos4tos = partidos4tos;</span>
+<span class="fc" id="L90">    }</span>
+    
+    public ArrayList&lt;Partido&gt; getPartidosSemis() {
+<span class="fc" id="L93">        return partidosSemis;</span>
+    }
+    
+    public void setPartidosSemis(ArrayList&lt;Partido&gt; partidosSemis) {
+<span class="fc" id="L97">        this.partidosSemis = partidosSemis;</span>
+<span class="fc" id="L98">    }</span>
+    
+<span class="nc" id="L100">    public Sistema(ArrayList&lt;Jugador&gt; unosJugadores, Jugador unJugador, Juego penca) {</span>
+<span class="nc" id="L101">        this.setJugadores(unosJugadores);</span>
+<span class="nc" id="L102">        this.setJuego(penca);</span>
+<span class="nc" id="L103">        this.setJugadorQueUsa(unJugador);</span>
+<span class="nc" id="L104">        this.setExistePenca(false);</span>
+<span class="nc" id="L105">        this.setPartidos(new ArrayList&lt;Partido&gt;());</span>
+<span class="nc" id="L106">        this.setPartidos8tavos(new ArrayList&lt;Partido&gt;());</span>
+<span class="nc" id="L107">        this.setPartidos4tos(new ArrayList&lt;Partido&gt;());</span>
+<span class="nc" id="L108">        this.setPartidosSemis(new ArrayList&lt;Partido&gt;());</span>
+        
+<span class="nc" id="L110">    }</span>
+    
+    public ArrayList&lt;Jugador&gt; getJugadores() {
+<span class="nc" id="L113">        return jugadores;</span>
+    }
+    
+    public void setJugadores(ArrayList&lt;Jugador&gt; jugadores) {
+<span class="fc" id="L117">        this.jugadores = jugadores;</span>
+<span class="fc" id="L118">    }</span>
+    
+    public Sistema cargarSistema() {
+<span class="fc" id="L121">        Sistema sistema = null;</span>
+        try {
+<span class="nc" id="L123">            ObjectInputStream in = new ObjectInputStream(new FileInputStream(&quot;datos.txt&quot;));</span>
+<span class="nc" id="L124">            sistema = (Sistema) in.readObject();</span>
+<span class="nc" id="L125">            in.close();</span>
+            
+<span class="fc" id="L127">        } catch (Exception e) {</span>
+<span class="fc" id="L128">            sistema = new Sistema();</span>
+            
+<span class="nc" id="L130">        }</span>
+<span class="fc" id="L131">        return sistema;</span>
+    }
+    
+    public void guardarSistema(Sistema sistema) {
+        try {
+<span class="nc" id="L136">            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(&quot;datos.txt&quot;));</span>
+<span class="nc" id="L137">            out.writeObject(sistema);</span>
+<span class="nc" id="L138">            out.close();</span>
+<span class="nc" id="L139">        } catch (Exception ex) {</span>
+            
+<span class="nc" id="L141">        }</span>
+        
+<span class="nc" id="L143">    }</span>
+    
+    public boolean registrarJugador(Jugador unJugador) {
+<span class="nc bnc" id="L146" title="All 2 branches missed.">        if (!(this.getJugadores().contains(unJugador))) {</span>
+<span class="nc" id="L147">            this.getJugadores().add(unJugador);</span>
+<span class="nc" id="L148">            return true;</span>
+        }
+<span class="nc" id="L150">        return false;</span>
+    }
+    
+    public Jugador buscarJugador(String alias) {
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        for (int i = 0; i &lt; this.getJugadores().size(); i++) {</span>
+<span class="nc" id="L155">            Jugador actual = this.getJugadores().get(i);</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">            if (actual.getAlias().equals(alias)) {</span>
+<span class="nc" id="L157">                return actual;</span>
+            }
+        }
+<span class="nc" id="L160">        return null;</span>
+    }
+    
+    public DefaultListModel mostrarJugadores() {
+<span class="nc" id="L164">        DefaultListModel listModel = new DefaultListModel();</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">        for (int i = 0; i &lt; this.getJugadores().size(); i++) {</span>
+<span class="nc" id="L166">            listModel.add(i, this.getJugadores().get(i).getAlias());</span>
+        }
+<span class="nc" id="L168">        return listModel;</span>
+    }
+    
+    public boolean seJugaron(ArrayList&lt;Partido&gt; partidos) {
+<span class="nc bnc" id="L172" title="All 2 branches missed.">        for (int i = 0; i &lt; partidos.size(); i++) {</span>
+<span class="nc" id="L173">            Partido p = partidos.get(i);</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">            if (!(p.isJugado())) {</span>
+<span class="nc" id="L175">                return false;</span>
+            }
+        }
+<span class="nc" id="L178">        return true;</span>
+    }
+    
+    public int codigoPais(String pais) {
+<span class="nc" id="L182">        int codigo = 0;</span>
+<span class="nc bnc" id="L183" title="All 130 branches missed.">        switch (pais) {</span>
+            case &quot;Uruguay&quot;:
+<span class="nc" id="L185">                codigo = 1;</span>
+<span class="nc" id="L186">                break;</span>
+            case &quot;Rusia&quot;:
+<span class="nc" id="L188">                codigo = 2;</span>
+<span class="nc" id="L189">                break;</span>
+            case &quot;Arabia saudita&quot;:
+<span class="nc" id="L191">                codigo = 3;</span>
+<span class="nc" id="L192">                break;</span>
+            case &quot;Egipto&quot;:
+<span class="nc" id="L194">                codigo = 4;</span>
+<span class="nc" id="L195">                break;</span>
+            case &quot;Portugal&quot;:
+<span class="nc" id="L197">                codigo = 5;</span>
+<span class="nc" id="L198">                break;</span>
+            case &quot;Marruecos&quot;:
+<span class="nc" id="L200">                codigo = 6;</span>
+<span class="nc" id="L201">                break;</span>
+            case &quot;España&quot;:
+<span class="nc" id="L203">                codigo = 7;</span>
+<span class="nc" id="L204">                break;</span>
+            case &quot;Iran&quot;:
+<span class="nc" id="L206">                codigo = 8;</span>
+<span class="nc" id="L207">                break;</span>
+            case &quot;Francia&quot;:
+<span class="nc" id="L209">                codigo = 9;</span>
+<span class="nc" id="L210">                break;</span>
+            case &quot;Australia&quot;:
+<span class="nc" id="L212">                codigo = 10;</span>
+<span class="nc" id="L213">                break;</span>
+            case &quot;Peru&quot;:
+<span class="nc" id="L215">                codigo = 11;</span>
+<span class="nc" id="L216">                break;</span>
+            case &quot;Dinamarca&quot;:
+<span class="nc" id="L218">                codigo = 12;</span>
+<span class="nc" id="L219">                break;</span>
+            case &quot;Argentina&quot;:
+<span class="nc" id="L221">                codigo = 13;</span>
+<span class="nc" id="L222">                break;</span>
+            case &quot;Islandia&quot;:
+<span class="nc" id="L224">                codigo = 14;</span>
+<span class="nc" id="L225">                break;</span>
+            case &quot;Croacia&quot;:
+<span class="nc" id="L227">                codigo = 15;</span>
+<span class="nc" id="L228">                break;</span>
+            case &quot;Nigeria&quot;:
+<span class="nc" id="L230">                codigo = 16;</span>
+<span class="nc" id="L231">                break;</span>
+            case &quot;Brasil&quot;:
+<span class="nc" id="L233">                codigo = 17;</span>
+<span class="nc" id="L234">                break;</span>
+            case &quot;Suiza&quot;:
+<span class="nc" id="L236">                codigo = 18;</span>
+<span class="nc" id="L237">                break;</span>
+            case &quot;Costa rica&quot;:
+<span class="nc" id="L239">                codigo = 19;</span>
+<span class="nc" id="L240">                break;</span>
+            case &quot;Serbia&quot;:
+<span class="nc" id="L242">                codigo = 20;</span>
+<span class="nc" id="L243">                break;</span>
+            case &quot;Alemania&quot;:
+<span class="nc" id="L245">                codigo = 21;</span>
+<span class="nc" id="L246">                break;</span>
+            case &quot;Mexico&quot;:
+<span class="nc" id="L248">                codigo = 22;</span>
+<span class="nc" id="L249">                break;</span>
+            case &quot;Suecia&quot;:
+<span class="nc" id="L251">                codigo = 23;</span>
+<span class="nc" id="L252">                break;</span>
+            case &quot;Corea del sur&quot;:
+<span class="nc" id="L254">                codigo = 24;</span>
+<span class="nc" id="L255">                break;</span>
+            case &quot;Belgica&quot;:
+<span class="nc" id="L257">                codigo = 25;</span>
+<span class="nc" id="L258">                break;</span>
+            case &quot;Panama&quot;:
+<span class="nc" id="L260">                codigo = 26;</span>
+<span class="nc" id="L261">                break;</span>
+            case &quot;Tunez&quot;:
+<span class="nc" id="L263">                codigo = 27;</span>
+<span class="nc" id="L264">                break;</span>
+            case &quot;Inglaterra&quot;:
+<span class="nc" id="L266">                codigo = 28;</span>
+<span class="nc" id="L267">                break;</span>
+            case &quot;Polonia&quot;:
+<span class="nc" id="L269">                codigo = 29;</span>
+<span class="nc" id="L270">                break;</span>
+            case &quot;Senegal&quot;:
+<span class="nc" id="L272">                codigo = 30;</span>
+<span class="nc" id="L273">                break;</span>
+            case &quot;Colombia&quot;:
+<span class="nc" id="L275">                codigo = 31;</span>
+<span class="nc" id="L276">                break;</span>
+            case &quot;Japon&quot;:
+<span class="nc" id="L278">                codigo = 32;</span>
+<span class="nc" id="L279">                break;</span>
+            default:
+                break;
+            
+        }
+<span class="nc" id="L284">        return codigo;</span>
+    }
+
+    public void actualizar(ArrayList&lt;Partido&gt; partidos) {
+<span class="nc bnc" id="L288" title="All 2 branches missed.">        for (int i = 0; i &lt; partidos.size(); i++) {</span>
+<span class="nc" id="L289">            Partido p = partidos.get(i);</span>
+<span class="nc" id="L290">            p.setJugado(true);</span>
+        }
+<span class="nc" id="L292">    }</span>
+
+    public void agregarPartidos(ArrayList&lt;Partido&gt; partidos, int identificador) {
+<span class="fc bfc" id="L295" title="All 2 branches covered.">        if (identificador == 0) {</span>
+<span class="fc bfc" id="L296" title="All 2 branches covered.">            for (int i = 0; i &lt; partidos.size(); i++) {</span>
+<span class="fc" id="L297">                getPartidos().add(partidos.get(i));</span>
+            }
+<span class="fc bfc" id="L299" title="All 2 branches covered.">        } else if (identificador == 16) {</span>
+<span class="fc bfc" id="L300" title="All 2 branches covered.">            for (int i = 0; i &lt; partidos.size(); i++) {</span>
+<span class="fc" id="L301">                getPartidos8tavos().add(partidos.get(i));</span>
+            }
+<span class="fc bfc" id="L303" title="All 2 branches covered.">        } else if (identificador == 8) {</span>
+<span class="fc bfc" id="L304" title="All 2 branches covered.">            for (int i = 0; i &lt; partidos.size(); i++) {</span>
+<span class="fc" id="L305">                getPartidos4tos().add(partidos.get(i));</span>
+            }
+<span class="pc bpc" id="L307" title="1 of 2 branches missed.">        } else if (identificador == 4) {</span>
+<span class="fc bfc" id="L308" title="All 2 branches covered.">            for (int i = 0; i &lt; partidos.size(); i++) {</span>
+<span class="fc" id="L309">                getPartidosSemis().add(partidos.get(i));</span>
+            }
+        }
+        
+<span class="fc" id="L313">    }</span>
+    
+    public ArrayList&lt;Partido&gt; partidosPorGrupo(String grupoo) {
+<span class="fc" id="L316">        ArrayList&lt;Partido&gt; partidos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L317">        ArchivoLectura todosLosPartidosDeLasFases = new ArchivoLectura(&quot;partidosFasesDeGruposysusResultados.txt&quot;);</span>
+<span class="fc bfc" id="L318" title="All 2 branches covered.">        while (todosLosPartidosDeLasFases.hayMasLineas()) {</span>
+<span class="fc" id="L319">            String linea = todosLosPartidosDeLasFases.linea();</span>
+<span class="fc bfc" id="L320" title="All 2 branches covered.">            if (!(linea.equals(&quot;&quot;))) {</span>
+<span class="fc" id="L321">                String[] datos = todosLosPartidosDeLasFases.linea().split(&quot;@&quot;);</span>
+<span class="fc" id="L322">                String grupo = datos[0];</span>
+<span class="fc" id="L323">                String pais = datos[1];</span>
+<span class="fc" id="L324">                String pais2 = datos[2];</span>
+<span class="fc" id="L325">                String lugarDisputa = datos[5];</span>
+<span class="fc bfc" id="L326" title="All 2 branches covered.">                if (grupoo.equals(grupo)) {</span>
+                    
+<span class="fc" id="L328">                    String[] equipos = new String[2];</span>
+<span class="fc" id="L329">                    equipos[0] = pais;</span>
+<span class="fc" id="L330">                    equipos[1] = pais2;</span>
+<span class="fc" id="L331">                    Date fecha = new Date();</span>
+<span class="fc" id="L332">                    int[] resultado = new int[2];</span>
+<span class="fc" id="L333">                    Partido partido = new Partido(resultado, false, equipos, lugarDisputa, fecha, grupo, &quot;Fase de grupos&quot;);</span>
+<span class="fc" id="L334">                    partidos.add(partido);</span>
+                    
+                }
+            }
+            
+<span class="fc" id="L339">        }</span>
+<span class="fc" id="L340">        todosLosPartidosDeLasFases.cerrar();</span>
+<span class="fc" id="L341">        return partidos;</span>
+        
+    }
+    // Pre : la fase puede ser 16 , 8 o 4.
+
+    public ArrayList&lt;Partido&gt; partidoFinal() {
+<span class="nc" id="L347">        ArrayList&lt;Partido&gt; partidos = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L348">        ArchivoLectura partidosFinal = new ArchivoLectura(&quot;FinalY34puesto.txt&quot;);</span>
+<span class="nc bnc" id="L349" title="All 2 branches missed.">        while (partidosFinal.hayMasLineas()) {</span>
+<span class="nc" id="L350">            String linea = partidosFinal.linea();</span>
+<span class="nc bnc" id="L351" title="All 2 branches missed.">            if (!(linea.equals(&quot;&quot;))) {</span>
+<span class="nc" id="L352">                String[] datos = partidosFinal.linea().split(&quot;@&quot;);</span>
+<span class="nc" id="L353">                String pais1 = datos[0];</span>
+<span class="nc" id="L354">                String pais2 = datos[1];</span>
+<span class="nc" id="L355">                String[] equipos = new String[2];</span>
+<span class="nc" id="L356">                equipos[0] = pais1;</span>
+<span class="nc" id="L357">                equipos[1] = pais2;</span>
+<span class="nc" id="L358">                Date fecha = new Date();</span>
+<span class="nc" id="L359">                String fasee = &quot;final&quot;;</span>
+<span class="nc" id="L360">                int[] resultado = new int[2];</span>
+<span class="nc" id="L361">                Partido partido = new Partido(resultado, false, equipos, &quot;Estadio central Ekaterimburgo&quot;, fecha, fasee, &quot;&quot;);</span>
+<span class="nc" id="L362">                partidos.add(partido);</span>
+                
+            }
+<span class="nc" id="L365">        }</span>
+<span class="nc" id="L366">        partidosFinal.cerrar();</span>
+<span class="nc" id="L367">        return partidos;</span>
+    }
+    
+    public ArrayList&lt;Partido&gt; partidosEnFases(int fase) {
+<span class="fc" id="L371">        ArrayList&lt;Partido&gt; partidos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L372">        ArchivoLectura partidosFase = new ArchivoLectura(fase + &quot;.txt&quot;);</span>
+<span class="fc bfc" id="L373" title="All 2 branches covered.">        while (partidosFase.hayMasLineas()) {</span>
+<span class="fc" id="L374">            String linea = partidosFase.linea();</span>
+<span class="pc bpc" id="L375" title="1 of 2 branches missed.">            if (!(linea.equals(&quot;&quot;))) {</span>
+<span class="fc" id="L376">                String[] datos = partidosFase.linea().split(&quot;@&quot;);</span>
+<span class="fc" id="L377">                String pais1 = datos[0];</span>
+<span class="fc" id="L378">                String pais2 = datos[1];</span>
+<span class="fc" id="L379">                String[] equipos = new String[2];</span>
+<span class="fc" id="L380">                equipos[0] = pais1;</span>
+<span class="fc" id="L381">                equipos[1] = pais2;</span>
+<span class="fc" id="L382">                int[] resultado = new int[2];</span>
+<span class="fc" id="L383">                Date fecha = new Date();</span>
+<span class="fc" id="L384">                String fasee = &quot;&quot;;</span>
+<span class="fc bfc" id="L385" title="All 2 branches covered.">                if (fase == 4) {</span>
+<span class="fc" id="L386">                    fasee = 4 + &quot;tos&quot;;</span>
+<span class="fc bfc" id="L387" title="All 2 branches covered.">                } else if (fase == 8) {</span>
+<span class="fc" id="L388">                    fasee = 8 + &quot;avos&quot;;</span>
+                } else {
+<span class="fc" id="L390">                    fasee = 16 + &quot;avos&quot;;</span>
+                }
+<span class="fc" id="L392">                Partido partido = new Partido(resultado, false, equipos, &quot;Estadio central Ekaterimburgo&quot;, fecha, fasee, &quot;&quot;);</span>
+<span class="fc" id="L393">                partidos.add(partido);</span>
+                
+            }
+            
+<span class="fc" id="L397">        }</span>
+<span class="fc" id="L398">        partidosFase.cerrar();</span>
+<span class="fc" id="L399">        return partidos;</span>
+    }
+
+    // Pre : se le debe pasar la lista de jugadores ya ordenada.
+    public ArrayList&lt;String&gt; rankingsumerados(ArrayList&lt;Jugador&gt; jugadores) {
+<span class="nc" id="L404">        ArrayList&lt;String&gt; rankings = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L405" title="All 2 branches missed.">        for (int i = 0; i &lt; jugadores.size(); i++) {</span>
+<span class="nc" id="L406">            Jugador jugadorActual = jugadores.get(i);</span>
+<span class="nc" id="L407">            rankings.add((i + 1) + &quot;-&quot; + jugadorActual.getAlias());</span>
+        }
+<span class="nc" id="L409">        return rankings;</span>
+    }
+    
+    public ArrayList&lt;Partido&gt; partidosJugadosEnFases(int fase) {
+<span class="nc" id="L413">        ArchivoLectura pFase = new ArchivoLectura(fase + &quot;.txt&quot;);</span>
+<span class="nc" id="L414">        ArrayList&lt;Partido&gt; partidos = new ArrayList&lt;Partido&gt;();</span>
+<span class="nc bnc" id="L415" title="All 2 branches missed.">        while (pFase.hayMasLineas()) {</span>
+<span class="nc" id="L416">            String linea = pFase.linea();</span>
+<span class="nc bnc" id="L417" title="All 2 branches missed.">            if (!(linea.isEmpty())) {</span>
+<span class="nc" id="L418">                String datos[] = pFase.linea().split(&quot;@&quot;);</span>
+<span class="nc" id="L419">                String pais1 = datos[0];</span>
+<span class="nc" id="L420">                String pais2 = datos[1];</span>
+<span class="nc" id="L421">                int resultadoPais1 = Integer.parseInt(datos[2]);</span>
+<span class="nc" id="L422">                int resultadoPais2 = Integer.parseInt(datos[3]);</span>
+<span class="nc" id="L423">                String equipos[] = new String[2];</span>
+<span class="nc" id="L424">                equipos[0] = pais1;</span>
+<span class="nc" id="L425">                equipos[1] = pais2;</span>
+<span class="nc" id="L426">                int[] resultado = new int[2];</span>
+<span class="nc" id="L427">                resultado[0] = resultadoPais1;</span>
+<span class="nc" id="L428">                resultado[1] = resultadoPais2;</span>
+<span class="nc" id="L429">                String lugarDisputa = &quot;Estadio central Ekaterimburgo&quot;;</span>
+<span class="nc" id="L430">                Date fecha = new Date();</span>
+<span class="nc" id="L431">                Partido jugado = new Partido(resultado, true, equipos, lugarDisputa, fecha, fase + &quot;&quot;, fase + &quot;&quot;);</span>
+<span class="nc" id="L432">                partidos.add(jugado);</span>
+            }
+<span class="nc" id="L434">        }</span>
+<span class="nc" id="L435">        pFase.cerrar();</span>
+<span class="nc" id="L436">        return partidos;</span>
+    }
+    
+    public ArrayList&lt;Partido&gt; resultadosEnfase() {
+<span class="nc" id="L440">        ArchivoLectura todosLosPartidosDeLasFases = new ArchivoLectura(&quot;partidosFasesDeGruposysusResultados.txt&quot;);</span>
+<span class="nc" id="L441">        ArrayList&lt;Partido&gt; partidos = new ArrayList&lt;Partido&gt;();</span>
+<span class="nc bnc" id="L442" title="All 2 branches missed.">        while (todosLosPartidosDeLasFases.hayMasLineas()) {</span>
+<span class="nc" id="L443">            String linea = todosLosPartidosDeLasFases.linea();</span>
+<span class="nc bnc" id="L444" title="All 2 branches missed.">            if (!(linea.isEmpty())) {</span>
+<span class="nc" id="L445">                String[] datos = todosLosPartidosDeLasFases.linea().split(&quot;@&quot;);</span>
+<span class="nc" id="L446">                String pais1 = datos[1];</span>
+<span class="nc" id="L447">                String fase = datos[0];</span>
+<span class="nc" id="L448">                String pais2 = datos[2];</span>
+<span class="nc" id="L449">                String equipos[] = new String[2];</span>
+<span class="nc" id="L450">                equipos[0] = pais1;</span>
+<span class="nc" id="L451">                equipos[1] = pais2;</span>
+<span class="nc" id="L452">                int[] resultado = new int[2];</span>
+<span class="nc" id="L453">                resultado[0] = Integer.parseInt(datos[3]);</span>
+<span class="nc" id="L454">                resultado[1] = Integer.parseInt(datos[4]);</span>
+<span class="nc" id="L455">                String lugarDisputa = datos[5];</span>
+<span class="nc" id="L456">                Date fecha = new Date();</span>
+<span class="nc" id="L457">                Partido jugado = new Partido(resultado, true, equipos, lugarDisputa, fecha, fase, fase);</span>
+<span class="nc" id="L458">                partidos.add(jugado);</span>
+            }
+<span class="nc" id="L460">        }</span>
+<span class="nc" id="L461">        todosLosPartidosDeLasFases.cerrar();</span>
+<span class="nc" id="L462">        return partidos;</span>
+    }
+    
+    public Partido buscarPartido(String[] equipos, ArrayList&lt;Partido&gt; partidos) {
+<span class="nc bnc" id="L466" title="All 2 branches missed.">        for (int i = 0; i &lt; partidos.size(); i++) {</span>
+<span class="nc" id="L467">            Partido p = partidos.get(i);</span>
+<span class="nc bnc" id="L468" title="All 4 branches missed.">            if (equipos[0].equals(p.getEquipos()[0]) &amp;&amp; (equipos[1].equals(p.getEquipos()[1]))) {</span>
+<span class="nc" id="L469">                return p;</span>
+            }
+        }
+<span class="nc" id="L472">        return null;</span>
+    }
+    
+    public void sumarPuntajeFaseGrupos(ArrayList&lt;Partido&gt; partidosJugados) {
+        
+<span class="nc bnc" id="L477" title="All 2 branches missed.">        for (int i = 0; i &lt; jugadores.size(); i++) {</span>
+<span class="nc" id="L478">            Jugador jugador = jugadores.get(i);</span>
+<span class="nc bnc" id="L479" title="All 2 branches missed.">            for (int j = 0; j &lt; jugador.getPronosticos().size(); j++) {</span>
+<span class="nc" id="L480">                PronosticoPartido apuesta = jugador.getPronosticos().get(j);</span>
+<span class="nc" id="L481">                Partido partido = apuesta.getPartido();</span>
+<span class="nc" id="L482">                Partido aux = buscarPartido(partido.getEquipos(), partidosJugados);</span>
+<span class="nc bnc" id="L483" title="All 2 branches missed.">                if (aux != null) {</span>
+<span class="nc bnc" id="L484" title="All 2 branches missed.">                    if (aciertoExacto(apuesta.getResultado(), aux.getResultado())) {</span>
+<span class="nc" id="L485">                        this.getJuego().getReglas().sumarAciertoExacto(jugador);</span>
+<span class="nc bnc" id="L486" title="All 2 branches missed.">                    } else if (aciertoEmpate(apuesta.getResultado(), aux.getResultado())) {</span>
+<span class="nc" id="L487">                        this.getJuego().getReglas().sumarAciertoEmpate(jugador);</span>
+                        
+<span class="nc bnc" id="L489" title="All 2 branches missed.">                    } else if (aciertoGanador(apuesta.getResultado(), aux.getResultado())) {</span>
+<span class="nc" id="L490">                        this.getJuego().getReglas().sumarAciertoGanador(jugador);</span>
+                    }
+                }
+                
+            }
+        }
+<span class="nc" id="L496">    }</span>
+    
+    public ArrayList&lt;Partido&gt; finaly34Puesto() {
+<span class="nc" id="L499">        ArchivoLectura final34Puesto = new ArchivoLectura(&quot;FinalY34puesto.txt&quot;);</span>
+<span class="nc" id="L500">        ArrayList&lt;Partido&gt; partidos = new ArrayList&lt;Partido&gt;();</span>
+<span class="nc bnc" id="L501" title="All 2 branches missed.">        while (final34Puesto.hayMasLineas()) {</span>
+<span class="nc" id="L502">            String linea = final34Puesto.linea();</span>
+<span class="nc bnc" id="L503" title="All 2 branches missed.">            if (!(linea.isEmpty())) {</span>
+<span class="nc" id="L504">                String[] datos = final34Puesto.linea().split(&quot;@&quot;);</span>
+<span class="nc" id="L505">                String pais1 = datos[0];</span>
+<span class="nc" id="L506">                String pais2 = datos[1];</span>
+<span class="nc" id="L507">                String equipos[] = new String[2];</span>
+<span class="nc" id="L508">                equipos[0] = pais1;</span>
+<span class="nc" id="L509">                equipos[1] = pais2;</span>
+<span class="nc" id="L510">                int[] resultado = new int[2];</span>
+<span class="nc" id="L511">                resultado[0] = Integer.parseInt(datos[2]);</span>
+<span class="nc" id="L512">                resultado[1] = Integer.parseInt(datos[3]);</span>
+<span class="nc" id="L513">                String lugarDisputa = &quot;Rusia&quot;;</span>
+<span class="nc" id="L514">                Date fecha = new Date();</span>
+<span class="nc" id="L515">                Partido jugado = new Partido(resultado, true, equipos, lugarDisputa, fecha, &quot;Final y 3er 4to puesto&quot;, &quot;final y 3er cuarto puesto&quot;);</span>
+<span class="nc" id="L516">                partidos.add(jugado);</span>
+            }
+<span class="nc" id="L518">        }</span>
+<span class="nc" id="L519">        final34Puesto.cerrar();</span>
+<span class="nc" id="L520">        return partidos;</span>
+        
+    }
+    
+    public void sumarPuntajeCuartos(ArrayList&lt;Partido&gt; partidosJugados) {
+<span class="nc bnc" id="L525" title="All 2 branches missed.">        if (this.getJuego() != null) {</span>
+<span class="nc bnc" id="L526" title="All 2 branches missed.">            if (this.getJuego().getReglas().isAumentoEnCambioDeFase()) {</span>
+<span class="nc" id="L527">                int aciertoEmpate = this.getJuego().getReglas().getAciertoEmpate();</span>
+<span class="nc" id="L528">                int aciertoExacto = this.getJuego().getReglas().getAciertoExacto();</span>
+<span class="nc" id="L529">                int aciertoGanador = this.getJuego().getReglas().getAciertoGanador();</span>
+<span class="nc" id="L530">                this.getJuego().getReglas().setAciertoEmpate(aciertoEmpate + 1);</span>
+<span class="nc" id="L531">                this.getJuego().getReglas().setAciertoExacto(aciertoExacto + 1);</span>
+<span class="nc" id="L532">                this.getJuego().getReglas().setAciertoGanador(aciertoGanador + 1);</span>
+<span class="nc" id="L533">                this.guardarSistema(this);</span>
+            }
+<span class="nc bnc" id="L535" title="All 2 branches missed.">            for (int i = 0; i &lt; jugadores.size(); i++) {</span>
+<span class="nc" id="L536">                Jugador jugador = jugadores.get(i);</span>
+<span class="nc bnc" id="L537" title="All 2 branches missed.">                for (int j = 0; j &lt; jugador.getPronosticos().size(); j++) {</span>
+<span class="nc" id="L538">                    PronosticoPartido apuesta = jugador.getPronosticos().get(j);</span>
+<span class="nc" id="L539">                    Partido partido = apuesta.getPartido();</span>
+<span class="nc" id="L540">                    Partido aux = buscarPartido(partido.getEquipos(), partidosJugados);</span>
+<span class="nc bnc" id="L541" title="All 2 branches missed.">                    if (aux != null) {</span>
+<span class="nc bnc" id="L542" title="All 2 branches missed.">                        if (aciertoExacto(apuesta.getResultado(), aux.getResultado())) {</span>
+<span class="nc" id="L543">                            this.getJuego().getReglas().sumarAciertoExacto(jugador);</span>
+<span class="nc bnc" id="L544" title="All 2 branches missed.">                        } else if (aciertoEmpate(apuesta.getResultado(), aux.getResultado())) {</span>
+<span class="nc" id="L545">                            this.getJuego().getReglas().sumarAciertoEmpate(jugador);</span>
+                            
+<span class="nc bnc" id="L547" title="All 2 branches missed.">                        } else if (aciertoGanador(apuesta.getResultado(), aux.getResultado())) {</span>
+<span class="nc" id="L548">                            this.getJuego().getReglas().sumarAciertoGanador(jugador);</span>
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+<span class="nc" id="L556">    }</span>
+    
+    public void sumarPuntajeOctavos(ArrayList&lt;Partido&gt; partidosJugados) {
+<span class="nc bnc" id="L559" title="All 2 branches missed.">        if (this.getJuego() != null) {</span>
+<span class="nc bnc" id="L560" title="All 2 branches missed.">            if (this.getJuego().getReglas().isAumentoEnCambioDeFase()) {</span>
+<span class="nc" id="L561">                int aciertoEmpate = this.getJuego().getReglas().getAciertoEmpate();</span>
+<span class="nc" id="L562">                int aciertoExacto = this.getJuego().getReglas().getAciertoExacto();</span>
+<span class="nc" id="L563">                int aciertoGanador = this.getJuego().getReglas().getAciertoGanador();</span>
+<span class="nc" id="L564">                this.getJuego().getReglas().setAciertoEmpate(aciertoEmpate + 1);</span>
+<span class="nc" id="L565">                this.getJuego().getReglas().setAciertoExacto(aciertoExacto + 1);</span>
+<span class="nc" id="L566">                this.getJuego().getReglas().setAciertoGanador(aciertoGanador + 1);</span>
+<span class="nc" id="L567">                  this.guardarSistema(this);</span>
+            }
+<span class="nc bnc" id="L569" title="All 2 branches missed.">            for (int i = 0; i &lt; jugadores.size(); i++) {</span>
+<span class="nc" id="L570">                Jugador jugador = jugadores.get(i);</span>
+<span class="nc bnc" id="L571" title="All 2 branches missed.">                for (int j = 0; j &lt; jugador.getPronosticos().size(); j++) {</span>
+<span class="nc" id="L572">                    PronosticoPartido apuesta = jugador.getPronosticos().get(j);</span>
+<span class="nc" id="L573">                    Partido partido = apuesta.getPartido();</span>
+<span class="nc" id="L574">                    Partido aux = buscarPartido(partido.getEquipos(), partidosJugados);</span>
+<span class="nc bnc" id="L575" title="All 2 branches missed.">                    if (aux != null) {</span>
+<span class="nc bnc" id="L576" title="All 2 branches missed.">                        if (aciertoExacto(apuesta.getResultado(), aux.getResultado())) {</span>
+<span class="nc" id="L577">                            this.getJuego().getReglas().sumarAciertoExacto(jugador);</span>
+<span class="nc bnc" id="L578" title="All 2 branches missed.">                        } else if (aciertoEmpate(apuesta.getResultado(), aux.getResultado())) {</span>
+<span class="nc" id="L579">                            this.getJuego().getReglas().sumarAciertoEmpate(jugador);</span>
+                            
+<span class="nc bnc" id="L581" title="All 2 branches missed.">                        } else if (aciertoGanador(apuesta.getResultado(), aux.getResultado())) {</span>
+<span class="nc" id="L582">                            this.getJuego().getReglas().sumarAciertoGanador(jugador);</span>
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+<span class="nc" id="L590">    }</span>
+    
+    public boolean aciertoExacto(int[] resultadoApuesta, int[] resultadoReal) {
+<span class="nc bnc" id="L593" title="All 4 branches missed.">        if ((resultadoApuesta[0] == resultadoReal[0])</span>
+                &amp;&amp; (resultadoApuesta[1] == resultadoReal[1])) {
+<span class="nc" id="L595">            return true;</span>
+        }
+<span class="nc" id="L597">        return false;</span>
+    }
+    
+    public boolean aciertoEmpate(int[] resultadoA, int[] resultadoR) {
+<span class="nc bnc" id="L601" title="All 6 branches missed.">        if ((resultadoA[0] == resultadoR[0])</span>
+                &amp;&amp; (resultadoA[1] == resultadoR[1])
+                &amp;&amp; (resultadoR[0] == resultadoR[1])) {
+<span class="nc" id="L604">            return true;</span>
+        }
+<span class="nc" id="L606">        return false;</span>
+    }
+    
+    public boolean aciertoGanador(int[] rA, int[] rR) {
+<span class="nc bnc" id="L610" title="All 4 branches missed.">        if ((rR[0] &gt; rR[1]) &amp;&amp; (rA[0] &gt; rA[1])) {</span>
+<span class="nc" id="L611">            return true;</span>
+<span class="nc bnc" id="L612" title="All 4 branches missed.">        } else if ((rR[1] &gt; rR[0]) &amp;&amp; (rA[1] &gt; rA[0])) {</span>
+<span class="nc" id="L613">            return true;</span>
+        }
+<span class="nc" id="L615">        return false;</span>
+    }
+    
+    public int buscarPuntaje(String alias) {
+<span class="nc bnc" id="L619" title="All 2 branches missed.">        for (int i = 0; i &lt; this.getJugadores().size(); i++) {</span>
+<span class="nc" id="L620">            Jugador jugador = this.getJugadores().get(i);</span>
+<span class="nc bnc" id="L621" title="All 2 branches missed.">            if (alias.equals(jugador.getAlias())) {</span>
+<span class="nc" id="L622">                return jugador.getPuntaje();</span>
+            }
+        }
+<span class="nc" id="L625">        return 0;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,48 @@
+Fase A Uruguay 2- Rusia 0
+Fase A Uruguay 3- Egipto 2
+Fase A Uruguay 7- Arabia saudita  0
+Fase A Rusia 2- Egipto 1
+Fase A Rusia 1- Arabia saudita  0
+Fase A Egipto 2- Arabia saudita  1
+Fase B Portugal 2- Espa�a 1
+Fase B Portugal 1- Marruecos 0
+Fase B Portugal 3- Iran 0
+Fase B Espa�a 2- Iran 1
+Fase B Espa�a 3- Marruecos 1
+Fase B Marruecos 1- Iran 1
+Fase C Francia 2- Australia 1
+Fase C Francia 5- Peru 0
+Fase C Francia 1- Dinamarca 0
+Fase C Australia 2- Peru 1
+Fase C Australia 3- Dinamarca 1
+Fase C Dinamarcca 2- Peru 2
+Fase D Argentina 2- Islandia 1
+Fase D Croacia 1- Argentina 1
+Fase D Argentina 2- Nigeria 0
+Fase D Croacia 2- Islandia 2
+Fase D Nigeria 3- Islandia 3
+Fase D Croacia 2- Nigeria 1
+Fase E Suiza 2- Brasil 2
+Fase E Brasil 3- Costa rica  1
+Fase E Brasil 2- Serbia 1
+Fase E Suiza 2- Costa rica  1
+Fase E Suiza 3- Serbia 2
+Fase E Serbia 2- Costa rica 2
+Fase F Alemania 2- Mexico 0
+Fase F Alemania 2- Suecia 1
+Fase F Alemania 1- Corea del sur 0
+Fase F Suecia 3- Mexico 3
+Fase F Corea del sur 2- Mexico 2
+Fase F Suecia 1- Corea del sur 0
+Fase G Belgica 3- Panama 2
+Fase G Belgica 1- Tunez 0
+Fase G Inglaterra 4- Belgica 4
+Fase G Tunez 2- Panama 2
+Fase G Inglaterra 3- Panama 3
+Fase G Inglaterra 3- Tunez 3
+Fase H Polonia 2- Senegal 1
+Fase H Colombia 3- Polonia 3
+Fase H Japon 0- Polonia 0
+Fase H Colombia 1- Senegal 1
+Fase H Senegal 2- Japon 1
+Fase H Colombia 2- Japon 0

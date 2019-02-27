@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SemifinalPronostico.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;obligatorios2is&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaz</a> &gt; <span class="el_source">SemifinalPronostico.java</span></div><h1>SemifinalPronostico.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package interfaz;
+
+import dominio.Partido;
+import dominio.PronosticoPartido;
+import dominio.Sistema;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Joaquin
+ */
+public class SemifinalPronostico extends javax.swing.JDialog {
+
+    private Sistema sistema;
+
+    public Sistema getSistema() {
+<span class="nc" id="L22">        return sistema;</span>
+    }
+
+    public void setSistema(Sistema sistema) {
+<span class="nc" id="L26">        this.sistema = sistema;</span>
+<span class="nc" id="L27">    }</span>
+
+    public SemifinalPronostico(java.awt.Frame parent, boolean modal, Sistema sistema) {
+<span class="nc" id="L30">        super(parent, modal);</span>
+<span class="nc" id="L31">        this.setSistema(sistema);</span>
+<span class="nc" id="L32">        initComponents();</span>
+<span class="nc" id="L33">        this.setSize(800, 800);</span>
+<span class="nc" id="L34">        this.setLocationRelativeTo(parent);</span>
+<span class="nc" id="L35">        pronosticos.setListData(getSistema().getJugadorQueUsa().getPronosticos().toArray());</span>
+
+<span class="nc" id="L37">        partidos.setListData(getSistema().partidosEnFases(4).toArray());</span>
+<span class="nc" id="L38">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L44">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L45">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L46">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L47">        partidos = new javax.swing.JList();</span>
+<span class="nc" id="L48">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L49">        partido = new javax.swing.JLabel();</span>
+<span class="nc" id="L50">        r1 = new javax.swing.JTextField();</span>
+<span class="nc" id="L51">        r2 = new javax.swing.JTextField();</span>
+<span class="nc" id="L52">        pronosticar = new javax.swing.JButton();</span>
+<span class="nc" id="L53">        jScrollPane2 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L54">        pronosticos = new javax.swing.JList();</span>
+<span class="nc" id="L55">        jLabel4 = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L57">        jLabel2.setText(&quot;jLabel2&quot;);</span>
+
+<span class="nc" id="L59">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
+
+<span class="nc" id="L61">        partidos.setModel(new javax.swing.AbstractListModel() {</span>
+<span class="nc" id="L62">            String[] strings = { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot;, &quot;Item 5&quot; };</span>
+<span class="nc" id="L63">            public int getSize() { return strings.length; }</span>
+<span class="nc" id="L64">            public Object getElementAt(int i) { return strings[i]; }</span>
+        });
+<span class="nc" id="L66">        partidos.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L68">                partidosMouseClicked(evt);</span>
+<span class="nc" id="L69">            }</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L71">                partidosMouseEntered(evt);</span>
+<span class="nc" id="L72">            }</span>
+        });
+<span class="nc" id="L74">        jScrollPane1.setViewportView(partidos);</span>
+
+<span class="nc" id="L76">        jLabel3.setText(&quot;Partidos&quot;);</span>
+
+<span class="nc" id="L78">        r2.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L80">                r2ActionPerformed(evt);</span>
+<span class="nc" id="L81">            }</span>
+        });
+
+<span class="nc" id="L84">        pronosticar.setText(&quot;Pronosticar&quot;);</span>
+<span class="nc" id="L85">        pronosticar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L87">                pronosticarActionPerformed(evt);</span>
+<span class="nc" id="L88">            }</span>
+        });
+
+<span class="nc" id="L91">        pronosticos.setModel(new javax.swing.AbstractListModel() {</span>
+<span class="nc" id="L92">            String[] strings = { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot;, &quot;Item 5&quot; };</span>
+<span class="nc" id="L93">            public int getSize() { return strings.length; }</span>
+<span class="nc" id="L94">            public Object getElementAt(int i) { return strings[i]; }</span>
+        });
+<span class="nc" id="L96">        jScrollPane2.setViewportView(pronosticos);</span>
+
+<span class="nc" id="L98">        jLabel4.setText(&quot;Tus pronosticos&quot;);</span>
+
+<span class="nc" id="L100">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L101">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L102">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L103">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L104">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L105">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L106">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L107">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L108">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L109">                                .addGap(114, 114, 114)</span>
+<span class="nc" id="L110">                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L111">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L112">                                .addGap(99, 99, 99)</span>
+<span class="nc" id="L113">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L114">                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L115">                                    .addComponent(pronosticar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))</span>
+<span class="nc" id="L116">                        .addGap(143, 143, 143)</span>
+<span class="nc" id="L117">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L118">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L119">                                .addComponent(jLabel4)</span>
+<span class="nc" id="L120">                                .addGap(53, 53, 53))</span>
+<span class="nc" id="L121">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L122">                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L123">                                .addGap(30, 30, 30))))</span>
+<span class="nc" id="L124">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L125">                        .addGap(92, 92, 92)</span>
+<span class="nc" id="L126">                        .addComponent(r1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L127">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L128">                        .addComponent(partido, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L129">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L130">                        .addComponent(r2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L131">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))</span>
+<span class="nc" id="L132">                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))</span>
+        );
+<span class="nc" id="L134">        layout.setVerticalGroup(</span>
+<span class="nc" id="L135">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L136">            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L137">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L138">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L139">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L140">                        .addGap(111, 111, 111)</span>
+<span class="nc" id="L141">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L142">                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L143">                            .addComponent(jLabel4))</span>
+<span class="nc" id="L144">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L145">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L146">                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L147">                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L148">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)</span>
+<span class="nc" id="L149">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L150">                            .addComponent(partido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L151">                            .addComponent(r1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="nc" id="L152">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L153">                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L154">                        .addComponent(r2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="nc" id="L155">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L156">                .addComponent(pronosticar)</span>
+<span class="nc" id="L157">                .addGap(99, 99, 99))</span>
+        );
+
+<span class="nc" id="L160">        pack();</span>
+<span class="nc" id="L161">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void pronosticarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pronosticarActionPerformed
+<span class="nc" id="L164">        Partido partido = (Partido) partidos.getSelectedValue();</span>
+<span class="nc" id="L165">        String resultado1 = this.r1.getText();</span>
+<span class="nc" id="L166">        String resultado2 = this.r2.getText();</span>
+<span class="nc bnc" id="L167" title="All 6 branches missed.">        if ((partido != null) &amp;&amp; (!(resultado1.isEmpty())) &amp;&amp; (!(resultado2.isEmpty()))) {</span>
+<span class="nc" id="L168">            int resultadoP1 = Integer.parseInt(this.r1.getText());</span>
+<span class="nc" id="L169">            int resultadoP2 = Integer.parseInt(this.r2.getText());</span>
+<span class="nc" id="L170">            int[] resultado = new int[2];</span>
+<span class="nc" id="L171">            resultado[0] = resultadoP1;</span>
+<span class="nc" id="L172">            resultado[1] = resultadoP2;</span>
+<span class="nc" id="L173">            PronosticoPartido pronostico = new PronosticoPartido(resultado, partido);</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">            if (!(getSistema().getJugadorQueUsa().getPronosticos().contains(pronostico))) {</span>
+<span class="nc" id="L175">                this.getSistema().getJugadorQueUsa().getPronosticos().add(pronostico);</span>
+<span class="nc" id="L176">                this.getSistema().guardarSistema(getSistema());</span>
+<span class="nc" id="L177">                pronosticos.setListData(getSistema().getJugadorQueUsa().getPronosticos().toArray());</span>
+<span class="nc" id="L178">                JOptionPane.showMessageDialog(this, &quot;Tu pronostico para el partido &quot; + partido.getEquipos()[0] + &quot; VS &quot; + partido.getEquipos()[1] + &quot; fue registrado con exito.&quot;, &quot;Pronostico registrado&quot;, 1);</span>
+            } else {
+<span class="nc" id="L180">                JOptionPane.showMessageDialog(this, &quot;Ya se hizo el pronostico&quot;, &quot;Ya se pronostico ese partido&quot;, 1);</span>
+            }
+<span class="nc" id="L182">        } else {</span>
+<span class="nc" id="L183">            JOptionPane.showMessageDialog(this, &quot;Porfavor seleccione el partido a apostar y ingrese el resultado a prnosticar.&quot;, &quot;Atencion , llene los campos&quot;, 2);</span>
+        }
+<span class="nc" id="L185">    }//GEN-LAST:event_pronosticarActionPerformed</span>
+
+    private void partidosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partidosMouseEntered
+       
+<span class="nc" id="L189">    }//GEN-LAST:event_partidosMouseEntered</span>
+
+    private void partidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partidosMouseClicked
+<span class="nc" id="L192">        Partido p = (Partido) partidos.getSelectedValue();</span>
+<span class="nc" id="L193">        String paiss1 = p.getEquipos()[0];</span>
+<span class="nc" id="L194">        String paiss2 = p.getEquipos()[1];</span>
+<span class="nc" id="L195">        partido.setText(paiss1 + &quot; VS &quot; + paiss2);</span>
+<span class="nc" id="L196">    }//GEN-LAST:event_partidosMouseClicked</span>
+
+    private void r2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r2ActionPerformed
+        // TODO add your handling code here:
+<span class="nc" id="L200">    }//GEN-LAST:event_r2ActionPerformed</span>
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel partido;
+    private javax.swing.JList partidos;
+    private javax.swing.JButton pronosticar;
+    private javax.swing.JList pronosticos;
+    private javax.swing.JTextField r1;
+    private javax.swing.JTextField r2;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

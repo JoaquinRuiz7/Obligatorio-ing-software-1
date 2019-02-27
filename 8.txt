@@ -1,0 +1,4 @@
+Alemania@Belgica@2@1
+Portugal@Argentina@2@3
+Brasil@Inglaterra@3@0
+Uruguay@Francia@2@0

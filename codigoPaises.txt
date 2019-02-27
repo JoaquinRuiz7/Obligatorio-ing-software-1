@@ -1,0 +1,32 @@
+1@Uruguay
+2@Rusia
+3@Arabia Saudita
+4@Egipto
+5@Portugal
+6@Marruecos
+7@España
+8@Iran
+9@Francia
+10@Australia
+11@Peru
+12@Dinamarca
+13@Argentina
+14@Islandia
+15@Croacia
+16@Nigeria
+17@Brasil
+18@Suiza
+19@Costa rica
+20@Serbia
+21@Alemania
+22@Mexico
+23@Suecia
+24@Corea del sur
+25@Belgica
+26@Panama
+27@Tunez
+28@Inglaterra
+29@Polonia
+30@Senegal
+31@Colombia
+32@Japon

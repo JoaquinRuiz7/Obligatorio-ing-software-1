@@ -1,0 +1,8 @@
+A@Uruguay@Arabia Saudita@Egipto@Rusia
+B@Portugal@Marruecos@España@Iran
+C@Francia@Australia@Peru@Dinamarca
+D@Argentina@Islandia@Croacia@Nigeria
+E@Brasil@Suiza@CostaRica@Serbia
+F@Alemania@Mexico@Suecia@Corea del sur
+G@Belgica@Panama@Tunez@Inglaterra
+H@Polonia@Senegal@Colombia@Japon

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Partido.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;obligatorios2is&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">dominio</a> &gt; <span class="el_source">Partido.java</span></div><h1>Partido.java</h1><pre class="source lang-java linenums">package dominio;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Partido implements Serializable {
+
+    private String[] equipos;
+    private String lugarDeDisputa;
+    private Date fechaYHora;
+    private String grupo;
+    private String fase;
+    private boolean jugado;
+    int [] resultado;
+
+    public String[] getEquipos() {
+<span class="nc" id="L18">        return equipos;</span>
+    }
+
+    public void setEquipos(String[] equipos) {
+<span class="fc" id="L22">        this.equipos = equipos;</span>
+<span class="fc" id="L23">    }</span>
+
+    public String getLugarDeDisputa() {
+<span class="nc" id="L26">        return lugarDeDisputa;</span>
+    }
+
+    public void setLugarDeDisputa(String lugarDeDisputa) {
+<span class="fc" id="L30">        this.lugarDeDisputa = lugarDeDisputa;</span>
+<span class="fc" id="L31">    }</span>
+
+    public Date getFechaYHora() {
+<span class="nc" id="L34">        return fechaYHora;</span>
+    }
+
+    public void setFechaYHora(Date fechaYHora) {
+<span class="fc" id="L38">        this.fechaYHora = fechaYHora;</span>
+<span class="fc" id="L39">    }</span>
+
+    public String getGrupo() {
+<span class="nc" id="L42">        return grupo;</span>
+    }
+
+    public boolean isJugado() {
+<span class="nc" id="L46">        return jugado;</span>
+    }
+
+    public void setJugado(boolean jugado) {
+<span class="fc" id="L50">        this.jugado = jugado;</span>
+<span class="fc" id="L51">    }</span>
+
+    public void setGrupo(String grupo) {
+<span class="fc" id="L54">        this.grupo = grupo;</span>
+<span class="fc" id="L55">    }</span>
+
+    public String getFase() {
+<span class="nc" id="L58">        return fase;</span>
+    }
+
+    public void setFase(String fase) {
+<span class="fc" id="L62">        this.fase = fase;</span>
+<span class="fc" id="L63">    }</span>
+
+    public int[] getResultado() {
+<span class="nc" id="L66">        return resultado;</span>
+    }
+
+    public void setResultado(int[] resultado) {
+<span class="fc" id="L70">        this.resultado = resultado;</span>
+<span class="fc" id="L71">    }</span>
+
+<span class="fc" id="L73">    public Partido(int [] resultado,boolean jugado,String[] equipos, String lugarDeDisputa, Date fechaYHora, String grupo, String fase) {</span>
+<span class="fc" id="L74">        this.setEquipos(equipos);</span>
+<span class="fc" id="L75">        this.setLugarDeDisputa(lugarDeDisputa);</span>
+<span class="fc" id="L76">        this.setFechaYHora(fechaYHora);</span>
+<span class="fc" id="L77">        this.setGrupo(grupo);</span>
+<span class="fc" id="L78">        this.setFase(fase);</span>
+<span class="fc" id="L79">        this.setJugado(jugado);</span>
+<span class="fc" id="L80">        this.setResultado(resultado);</span>
+<span class="fc" id="L81">    }</span>
+
+<span class="nc" id="L83">    public Partido() {</span>
+<span class="nc" id="L84">        this.setEquipos(equipos);</span>
+<span class="nc" id="L85">        this.setFase(&quot;Sin datos&quot;);</span>
+<span class="nc" id="L86">        this.setFechaYHora(new Date());</span>
+<span class="nc" id="L87">        this.setGrupo(&quot;Sin datos&quot;);</span>
+<span class="nc" id="L88">        this.setLugarDeDisputa(&quot;Sin datos&quot;);</span>
+<span class="nc" id="L89">        this.setJugado(false);</span>
+<span class="nc" id="L90">        this.setResultado(new int [2]);</span>
+
+<span class="nc" id="L92">    }</span>
+    @Override
+    public String toString() {
+<span class="nc" id="L95">        return  this.getEquipos()[0] + &quot; VS &quot; + this.getEquipos()[1];</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

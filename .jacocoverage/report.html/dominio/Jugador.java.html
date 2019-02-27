@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Jugador.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;obligatorios2is&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">dominio</a> &gt; <span class="el_source">Jugador.java</span></div><h1>Jugador.java</h1><pre class="source lang-java linenums">package dominio;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Jugador implements Serializable, Comparable&lt;Jugador&gt; {
+
+    private String alias;
+    private int puntaje;
+    private ArrayList&lt;PronosticoPartido&gt; pronosticos;
+   
+    public String getAlias() {
+<span class="nc" id="L13">        return alias;</span>
+    }
+
+    public void setAlias(String alias) {
+<span class="fc" id="L17">        this.alias = alias;</span>
+<span class="fc" id="L18">    }</span>
+
+    public ArrayList&lt;PronosticoPartido&gt; getPronosticos() {
+<span class="nc" id="L21">        return pronosticos;</span>
+    }
+
+    public void setPronosticos(ArrayList&lt;PronosticoPartido&gt; pronosticos) {
+<span class="fc" id="L25">        this.pronosticos = pronosticos;</span>
+<span class="fc" id="L26">    }</span>
+
+    public int getPuntaje() {
+<span class="nc" id="L29">        return puntaje;</span>
+    }
+
+    public void setPuntaje(int puntaje) {
+<span class="fc" id="L33">        this.puntaje = puntaje;</span>
+<span class="fc" id="L34">    }</span>
+
+<span class="fc" id="L36">    public Jugador() {</span>
+<span class="fc" id="L37">        this.setAlias(&quot;&quot;);</span>
+<span class="fc" id="L38">        this.setPronosticos(new ArrayList&lt;PronosticoPartido&gt;());</span>
+<span class="fc" id="L39">        this.setPuntaje(0);</span>
+<span class="fc" id="L40">    }</span>
+
+<span class="nc" id="L42">    public Jugador(String alias) {</span>
+<span class="nc" id="L43">        this.setAlias(alias);</span>
+<span class="nc" id="L44">        this.setPuntaje(0);</span>
+<span class="nc" id="L45">        this.setPronosticos(new ArrayList&lt;PronosticoPartido&gt;());</span>
+
+<span class="nc" id="L47">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L51">        return this.getAlias();</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="nc" id="L56">        Jugador compara = (Jugador) o;</span>
+<span class="nc" id="L57">        return this.getAlias().equals(compara.getAlias());</span>
+    }
+
+    @Override
+    public int compareTo(Jugador jugador) {
+<span class="nc" id="L62">        int diferencia = 0;</span>
+<span class="nc" id="L63">        diferencia = jugador.getPuntaje() - this.getPuntaje();</span>
+<span class="nc" id="L64">        return diferencia;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
